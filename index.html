@@ -12,6 +12,8 @@
 			src: url(/fonts/fabiola.otf) format("truetype");
 		}
 	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="examples.css">
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script></head>
 <link rel="stylesheet" href="https://use.typekit.net/fgz7vkg.css">
 <script async src="https://tally.so/widgets/embed.js"></script>
@@ -28,7 +30,7 @@
 	</div>
 	<div id="section4" class="flex flex-col bg-gradient-to-r from-[#40fff2] to-[#3fbcff] h-[100vh] justify-center items-center">
 		<h1 class="text-[5rem] text-center text-white" style="font-family: Fabiola;">RSVP mai jos</h1>
-		<div data-tally-open="wAbg4k" data-tally-layout="modal" data-tally-overlay="1" data-tally-width="398" data-tally-auto-close="4000" class="button-6" role="button">
+		<div data-tally-open="wAbg4k" data-tally-layout="modal" data-tally-overlay="1"  data-tally-auto-close="4000" class="button-6" role="button">
 			<span> &nbsp; &nbsp; &nbsp; R S V P &nbsp; &nbsp; &nbsp; </span>
 		</div>
 		<!-- <button id="button" class="w-[160px] h-[78px] text-4xl py-6 bg-white text-center border-2 border-black rounded hover:border-blue hover:text-blue transition ease-in-out" data-tally-open="wAbg4k" id="RSVP" data-tally-layout="modal" data-tally-overlay="1" data-tally-width="398" data-tally-auto-close="4000" role="button" style="font-family: Fabiola;">RSVP</button> -->
@@ -119,6 +121,11 @@
 	});
 </script> -->
 <script>
+	const modal1 = document.querySelector('.modal');
+	if (window.innerWidth < 480) {
+  		modal1.style.width = '100%';
+  		modal1.style.height = '100%';
+	}
 	// Get all the sections
 	const sections = document.querySelectorAll('div[id^="section"]');
 	let isScrolling = false;
