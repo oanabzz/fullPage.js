@@ -13,6 +13,8 @@
 		}
 	</style>
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script></head>
+<link rel="stylesheet" href="https://use.typekit.net/fgz7vkg.css">
+<script async src="https://tally.so/widgets/embed.js"></script>
 <body>
 <div class="w-full h-[100vh] flex-1 flex-column">
 	<div id="section1" class="h-[100vh] bg-[#788343] flex justify-center items-center">
@@ -26,109 +28,29 @@
 	</div>
 	<div id="section4" class="flex flex-col bg-gradient-to-r from-[#40fff2] to-[#3fbcff] h-[100vh] justify-center items-center">
 		<h1 class="text-[5rem] text-center text-white" style="font-family: Fabiola;">RSVP mai jos</h1>
-		<button id="button" class="w-[160px] h-[78px] text-4xl py-6 bg-white text-center border-2 border-black rounded hover:border-blue hover:text-blue transition ease-in-out" style="font-family: Fabiola;">RSVP</button>
+		<button id="button" class="w-[160px] h-[78px] text-4xl py-6 bg-white text-center border-2 border-black rounded hover:border-blue hover:text-blue transition ease-in-out" data-tally-open="wAbg4k" id="RSVP" data-tally-layout="modal" role="button" style="font-family: Fabiola;">RSVP</button>
 	</div>
 </div>
 
-<!-- Modal -->
-<div id="rsvp-modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
-    <div class="bg-white rounded-lg shadow-xl w-[60%] sm:w-[100%] md:w-[60%] lg:w-[50%] xl:w-[40%] p-8">
-        <div class="flex flex-col items-center bg-white p-8 rounded-lg">
-            <!-- Improved Image -->
-            <div class="relative w-52 h-52 mb-8">
-                <img 
-                    src="/images/photo-1553135422-400ee5852b27.jpg" 
-                    alt="Cupcake" 
-                    class="w-full h-full object-cover rounded-full border-4 border-purple-300 shadow-lg"
-                >
-                <div 
-                    class="absolute inset-0 rounded-full bg-gradient-to-b from-transparent via-transparent to-purple-300 opacity-40"
-                ></div>
-            </div>
 
-            <!-- Styled Title -->
-            <h2 class="text-6xl sm:text-7xl text-purple-600 font-bold tracking-wide text-center mb-6" style="font-family: Fabiola;">
-                Veniti sau nu veniti
-            </h2>
-
-            <!-- Styled Subtitle -->
-            <p class="text-2xl sm:text-3xl text-gray-600 text-center font-medium">Hai la nunta</p>
-        </div>
-
-        <form>
-            <!-- Veniti? -->
-            <div class="mb-8">
-                <label class="block text-2xl sm:text-3xl font-medium mb-4">Veniti? <span class="text-red-500">*</span></label>
-                <div class="flex items-center gap-6">
-                    <!-- Yes Option -->
-                    <label
-                        class="flex items-center gap-3 bg-gray-100 border border-gray-300 px-8 py-4 rounded-lg cursor-pointer"
-                        id="yes-option">
-                        <input type="radio" name="veniti_la_nunta" value="Da" class="hidden">
-                        <span class="text-2xl sm:text-3xl font-medium bg-gray-500 text-white rounded p-2">A</span>
-                        <span class="text-2xl sm:text-3xl font-medium">Yes</span>
-                    </label>
-            
-                    <!-- No Option -->
-                    <label
-                        class="flex items-center gap-3 bg-gray-100 border border-gray-300 px-8 py-4 rounded-lg cursor-pointer"
-                        id="no-option">
-                        <input type="radio" name="veniti_la_nunta" value="Nu" class="hidden">
-                        <span class="text-2xl sm:text-3xl font-medium bg-gray-500 text-white rounded p-2">B</span>
-                        <span class="text-2xl sm:text-3xl font-medium">No</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Nume -->
-            <div class="mb-8">
-                <label class="block text-2xl sm:text-3xl font-medium mb-4">Nume <span class="text-red-500">*</span></label>
-                <input type="text" name="name" class="w-full border border-gray-300 rounded-lg px-6 py-4 sm:py-5 text-2xl sm:text-3xl focus:outline-none focus:ring-2 focus:ring-blue-500 hover:drop-shadow-md">
-            </div>
-
-            <!-- Cazare? -->
-            <div class="mb-8">
-                <label class="block text-2xl sm:text-3xl font-medium mb-4">Cazare? <span class="text-red-500">*</span></label>
-                <div class="flex flex-col gap-6">
-                    <label class="flex items-center gap-3">
-                        <input id="cazare-da" type="checkbox" name="cazare" value="da" class="rounded text-blue-500 focus:ring-2 focus:ring-blue-500 hover:drop-shadow">
-                        <span class="text-2xl sm:text-3xl font-medium">da</span>
-                    </label>
-                    <label class="flex items-center gap-3">
-                        <input id="cazare-nu" type="checkbox" name="cazare" value="nu" class="rounded text-blue-500 focus:ring-2 focus:ring-blue-500 hover:drop-shadow">
-                        <span class="text-2xl sm:text-3xl font-medium">nu</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Submit -->
-            <button type="submit" class="w-full bg-black text-white py-5 sm:py-6 rounded-lg text-2xl sm:text-3xl text-center font-medium hover:bg-gray-800 transition">
-                Submit →
-            </button>
-        </form>
-        <button id="close-modal" class="mt-6 text-2xl sm:text-3xl text-gray-500 hover:underline">Close</button>
-    </div>
-</div>
-
-
-<script>
+<!-- <script>
 	document.getElementById("button").addEventListener("click", () => {
 		document.getElementById("rsvp-modal").classList.remove("hidden");
 	});
 	document.getElementById("close-modal").addEventListener("click", () => {
 		document.getElementById("rsvp-modal").classList.add("hidden");
 	});
-</script>
-<script>
+</script> -->
+<!-- <script>
 	// Initialize EmailJS with your User ID
 	(function () {
 	  emailjs.init("0lEzScROS5Xkn39Kf"); // Replace "YOUR_USER_ID" with your EmailJS User ID
 	})();
-  
+
 	// Handle form submission
 	document.querySelector("form").addEventListener("submit", function (e) {
 	  e.preventDefault(); // Prevent default form submission behavior
-  
+
 	  // Collect form data
 	  const form = e.target;
 	  const formData = {
@@ -138,10 +60,10 @@
 		  .map((checkbox) => checkbox.value)
 		  .join(", "),
 	  };
-  
+
 	  // Send email using EmailJS
-	  emailjs
-		.send("service_gkz2f6e", "template_xy3l9c1", formData)
+	  emailjs -->
+		<!-- .send("service_gkz2f6e", "template_xy3l9c1", formData)
 		.then(
 		  (response) => {
 			alert("RSVP sent successfully! Thank you.");
@@ -153,8 +75,8 @@
 		  }
 		);
 	});
-  </script>
-  <script>
+  </script> -->
+  <!-- <script>
 	const yesOption = document.getElementById('yes-option');
 	const noOption = document.getElementById('no-option');
 	const yesInput = yesOption.querySelector('input');
@@ -192,7 +114,7 @@
 			cazareDa.checked = false; // Uncheck the "da" checkbox
 		}
 	});
-</script>
+</script> -->
 <script>
 	// Get all the sections
 	const sections = document.querySelectorAll('div[id^="section"]');
@@ -244,18 +166,18 @@
 		}
 	});
 
-	// Modal Logic
-	openModalButton.addEventListener('click', () => {
-		modal.classList.remove('hidden');
-		document.body.style.overflow = 'hidden'; // Disable scroll
-	});
+	// // Modal Logic
+	// openModalButton.addEventListener('click', () => {
+	// 	modal.classList.remove('hidden');
+	// 	document.body.style.overflow = 'hidden'; // Disable scroll
+	// });
 
-	closeModalButton.addEventListener('click', () => {
-		modal.classList.add('hidden');
-		document.body.style.overflow = ''; // Enable scroll
-	});
+	// closeModalButton.addEventListener('click', () => {
+	// 	modal.classList.add('hidden');
+	// 	document.body.style.overflow = ''; // Enable scroll
+	// });
 </script>
 
-  
+
 </body>
 </html>
