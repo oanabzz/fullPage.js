@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @font-face {
+        font-family: "Fabiola";
+        src: url(/fonts/fabiola.otf) format("truetype");
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+<title>Responsive Layout with Custom Texts</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Fabiola, serif;
+      background-color: #1E2617;
+    }
+
+    .section {
+        width: 100vw;
+        justify-content: center;
+        align-content: center;
+        display: flex;
+        flex-direction: row; /* Default: Image on the left, text on the right */
+        height: 50vh; /* Each section takes half the viewport height */
+        overflow: hidden;
+    }
+
+    .image-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1E2617;
+    }
+
+    .frame {
+      width: 400px;
+      height: 250px;
+      background-color: #1E2617;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Ensures image fits within the frame without distortion */
+    }
+
+    .text-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: #1E2617;
+      text-align: center;
+    }
+
+    .custom-text p {
+      margin: 5px 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #f3d9e8;
+    }
+
+    .custom-text time {
+      display: block;
+      font-size: 2rem;
+      color: #f3d9e8;
+      margin: 5px 0;
+    }
+
+    .custom-text span {
+        font-family: 'Raleway', serif;
+      font-size: 1.3rem;
+      color: #f3d9e8;
+      display: block;
+    }
+
+    .custom-text .italic {
+        font-family: 'Raleway', serif;
+      font-style: italic;
+      color: #f3d9e8;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    .detailsSpan span {
+        size: 0.7rem;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .button-container a {
+      display: inline-block;
+      padding: 8px 15px 6px 15px;
+      font-size: 1.3rem;
+      color: #f3d9e8;
+      background-color: #1E2617;
+      text-decoration: none;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-container a:hover {
+      background-color: #788343;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      .image-container {
+        width: 100%;
+        height: 50%;
+      }
+
+      .text-container {
+        width: 100%;
+        height: 50%;
+      }
+
+      .frame {
+        width: 300px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Section 1 -->
+  <div class="section">
+    <div class="image-container">
+      <div class="frame">
+        <img src="images/flori_dark_up.png" alt="Image 1">
+      </div>
+    </div>
+    <div class="text-container custom-text">
+      <p>C E R E M O N I A</p>
+      <time>15:30</time>
+      <span>Parohia Sf. Mare Mc. Mina</span>
+      <span class="detailsSpan">(Str. Vasile Conta 10, Cluj-Napoca, Cluj)</span>
+      <div class="button-container">
+        <a href="https://www.google.com/maps" target="_blank">H A R T A</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <div class="image-container">
+      <div class="frame">
+        <img src="images/flori_dark_down.png" alt="Image 2">
+      </div>
+    </div>
+    <div class="text-container custom-text">
+      <p>C E L E B R A R E A</p>
+      <time>18:00</time>
+      <span>The Wild Garden</span>
+      <span class="detailsSpan">(Str. Drumul Sf. Ioan 266, Cluj-Napoca, Cluj)</span>
+      <span class="italic">Parcarea rezervată la locație</span>
+      <span class="italic">Ținuta de tip cocktail</span>
+      <div class="button-container">
+        <a href="https://www.google.com/maps" target="_blank">H A R T A</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
