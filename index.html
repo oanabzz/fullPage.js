@@ -256,30 +256,24 @@
 				/* Stack images vertically on small screens */
 				height: auto;
 				/* Allow scrolling when stacked */
+				align-items: center;
+				justify-items: center;
 			}
 
 			.image-left {
-				max-width: 100vh;
-				width: auto;
+				width: 100vw;
 				/* Full width for each image */
 				height: 100vh;
 				/* Full height of the viewport for each image */
-				overflow: hidden;
-				object-fit: cover;
-				align-items: center;
 			}
 
 			.image-left img {
-				display: block;
 				max-width: 100vw;
-				/* Ensures the image doesn't exceed the container */
 				max-height: 100vh;
-				/* Prevents the image from exceeding the screen height */
 				width: 100vw;
-				/* Maintains aspect ratio */
-				height: auto;
-				object-fit: contain;
-				overflow: hidden;
+				/* height: auto; */
+				align-self: center;
+				justify-self: center;
 			}
 
 			.image-right {
@@ -309,6 +303,14 @@
 				/* Full width */
 				height: 100vh;
 				/* Full viewport height */
+			}
+
+			.flowers-up {
+				margin-top: 70px;
+			}
+
+			.flowers-down {
+				margin-bottom: 70px;
 			}
 
 			.text-container {
@@ -358,7 +360,7 @@
 	<div class="section2 section" id="section2">
 		<!-- Left Group -->
 		<div class="group left-group subsection">
-			<img class="image" src="images/flori_dark_up.png" alt="Top Image Left">
+			<img class="image flowers-up" src="images/flori_dark_up.png" alt="Top Image Left">
 			<div class="text-container custom-text">
 				<p>C E R E M O N I A</p>
 				<time>15:30</time>
@@ -368,12 +370,12 @@
 					<a href="https://www.google.com/maps" target="_blank">H A R T A</a>
 				</div>
 			</div>
-			<img class="image" src="images/flori_dark_down.png" alt="Bottom Image Left">
+			<img class="image flowers-down" src="images/flori_dark_down.png" alt="Bottom Image Left">
 		</div>
 
 		<!-- Right Group -->
 		<div class="group right-group subsection">
-			<img class="image" src="images/flori_dark_up.png" alt="Top Image Right">
+			<img class="image flowers-up" src="images/flori_dark_up.png" alt="Top Image Right">
 			<div class="text-container custom-text">
 				<p>C E L E B R A R E A</p>
 				<time>18:00</time>
@@ -385,7 +387,7 @@
 					<a href="https://www.google.com/maps" target="_blank">H A R T A</a>
 				</div>
 			</div>
-			<img class="image" src="images/flori_dark_down.png" alt="Bottom Image Right">
+			<img class="image flowers-down" src="images/flori_dark_down.png" alt="Bottom Image Right">
 		</div>
 	</div>
 	<div class="section3 section subsection" id="section3">
