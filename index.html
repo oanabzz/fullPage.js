@@ -1,328 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script async src="https://tally.so/widgets/embed.js"></script>
-  <style>
-    @font-face {
-        font-family: "Fabiola";
-        src: url(/fonts/fabiola.otf) format("truetype");
-    }
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-  <title>Responsive Images Layout</title>
-  <style>
-    body {
-    background-color: #1E2617;
-      margin: 0;
-      padding: 0;
-      font-family: Fabiola, serif;
-      background-color: #1E2617;
-    }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script async src="https://tally.so/widgets/embed.js"></script>
+	<style>
+		@font-face {
+			font-family: "Fabiola";
+			src: url(/fonts/fabiola.otf) format("truetype");
+		}
+	</style>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+	<title>Responsive Images Layout</title>
+	<style>
+		body {
+			background-color: #1E2617;
+			margin: 0;
+			padding: 0;
+			font-family: Fabiola, serif;
+		}
 
-    .container1 {
-        background-color: #1E2617;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+		.container1 {
+			background-color: #1E2617;
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+		}
 
-    .container2 {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+		.image-left {
+			flex: 0 0 auto;
+			/* Prevent resizing of the image container */
+			max-width: 50%;
+			/* Ensures it takes up at most half of the screen */
+		}
 
-    .image-left {
-      flex: 0 0 auto; /* Prevent resizing of the image container */
-      max-width: 50%; /* Ensures it takes up at most half of the screen */
-    }
+		.image-left img {
+			display: block;
+			max-width: 100vw;
+			/* Ensures the image doesn't exceed the container */
+			max-height: 100vh;
+			/* Prevents the image from exceeding the screen height */
+			width: auto;
+			/* Maintains aspect ratio */
+			height: 100vh;
+			object-fit: cover;
+		}
 
-    .image-left img {
-      display: block;
-      max-width: 100%; /* Ensures the image doesn't exceed the container */
-      max-height: 100vh; /* Prevents the image from exceeding the screen height */
-      width: auto; /* Maintains aspect ratio */
-      height: 100vh;
-      object-fit: cover;
-    }
+		.image-right {
+			flex: 1 1 auto;
+			/* Allows the right side to take remaining space */
+			display: flex;
+			justify-content: center;
+			/* Center the image horizontally */
+			align-items: center;
+			/* Center the image vertically */
+		}
 
-    .image-right {
-      flex: 1 1 auto; /* Allows the right side to take remaining space */
-      display: flex;
-      justify-content: center; /* Center the image horizontally */
-      align-items: center; /* Center the image vertically */
-    }
+		.image-right img {
+			max-width: 100vw;
+			max-height: 100vh;
+			/* Prevents the image from exceeding the screen height */
+			width: auto;
+			/* Maintains aspect ratio */
+			height: 90vh;
+		}
 
-    .image-right img {
-      max-width: 100%;
-      max-height: 100vh; /* Prevents the image from exceeding the screen height */
-      width: auto; /* Maintains aspect ratio */
-      height: 90vh;
-    }
+		.group {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 50%;
+			/* Half the width on large screens */
+			height: 100%;
+			/* Full height of the viewport */
+		}
 
-    .group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 50%; /* Half the width on large screens */
-      height: 100%; /* Full height of the viewport */
-    }
+		.image {
+			max-width: 80%;
+			max-height: 40%;
+			object-fit: contain;
+			margin: 10px 0;
+		}
 
-    .image {
-      max-width: 80%;
-      max-height: 40%;
-      object-fit: contain;
-      margin: 10px 0;
-    }
+		.text {
+			text-align: center;
+			font-size: 1.5rem;
+			font-weight: bold;
+			color: #333;
+		}
 
-    .text {
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #333;
-    }
+		.text-container {
+			z-index: -1;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+			box-sizing: border-box;
+			background-color: #1E2617;
+			text-align: center;
+			margin: -100px;
+		}
 
-    .text-container {
-        z-index: -1;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      box-sizing: border-box;
-      background-color: #1E2617;
-      text-align: center;
-      margin: -100px;
-    }
+		.custom-text p {
+			margin: 5px 0;
+			font-size: 2.5rem;
+			font-weight: bold;
+			color: #f3d9e8;
+		}
 
-    .custom-text p {
-      margin: 5px 0;
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #f3d9e8;
-    }
+		.custom-text time {
+			display: block;
+			font-size: 2rem;
+			color: #f3d9e8;
+			margin: 5px 0;
+		}
 
-    .custom-text time {
-      display: block;
-      font-size: 2rem;
-      color: #f3d9e8;
-      margin: 5px 0;
-    }
+		.custom-text span {
+			font-family: 'Raleway', serif;
+			font-size: 1.3rem;
+			color: #f3d9e8;
+			display: block;
+		}
 
-    .custom-text span {
-        font-family: 'Raleway', serif;
-      font-size: 1.3rem;
-      color: #f3d9e8;
-      display: block;
-    }
+		.custom-text .italic {
+			font-family: 'Raleway', serif;
+			font-style: italic;
+			color: #f3d9e8;
+			margin-top: 10px;
+			font-size: 1rem;
+		}
 
-    .custom-text .italic {
-        font-family: 'Raleway', serif;
-      font-style: italic;
-      color: #f3d9e8;
-      margin-top: 10px;
-      font-size: 1rem;
-    }
+		.detailsSpan span {
+			size: 0.7rem;
+		}
 
-    .detailsSpan span {
-        size: 0.7rem;
-    }
+		.button-container {
+			margin-top: 20px;
+		}
 
-    .button-container {
-      margin-top: 20px;
-    }
+		.left-button {
+			margin-top: 80px;
+		}
 
-    .left-button {
-        margin-top: 80px;
-    }
+		.button-container a {
+			display: inline-block;
+			padding: 8px 15px 6px 15px;
+			font-size: 1.3rem;
+			color: #f3d9e8;
+			background-color: #1E2617;
+			text-decoration: none;
+			border: 1px solid #ffffff;
+			border-radius: 5px;
+			transition: background-color 0.3s ease;
+		}
 
-    .button-container a {
-      display: inline-block;
-      padding: 8px 15px 6px 15px;
-      font-size: 1.3rem;
-      color: #f3d9e8;
-      background-color: #1E2617;
-      text-decoration: none;
-      border: 1px solid #ffffff;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
+		.button-container a:hover {
+			background-color: #788343;
+		}
 
-    .button-container a:hover {
-      background-color: #788343;
-    }
+		.section2 {
+			display: flex;
+			flex-direction: row;
+		}
 
-    .section2 {
-        display: flex;
-      flex-direction: row; 
-    }
+		.text-box {
+			text-align: center;
+			max-width: 80%;
+			/* Adjust for readability */
+			color: #f3d9e8;
+			margin-bottom: 20px;
+			/* Add spacing between text and image */
+		}
 
-    .text-box {
-      text-align: center;
-      max-width: 80%; /* Adjust for readability */
-      color: #f3d9e8;
-      margin-bottom: 20px; /* Add spacing between text and image */
-    }
+		.text-box p {
+			font-family: 'Raleway', serif;
+		}
 
-    .text-box p {
-      font-family: 'Raleway', serif;
-    }
+		.text-box h1 {
+			font-size: 2.5rem;
+			margin-bottom: -10px;
+		}
 
-    .text-box h1 {
-      font-size: 2.5rem;
-      margin-bottom: -10px;
-    }
-    .flowers img {
-      max-width: 50vw; /* Limit image width to 90% of the viewport width */
-      height: auto; /* Maintain aspect ratio */
-    }
+		.flowers img {
+			max-width: 50vw;
+			/* Limit image width to 90% of the viewport width */
+			height: auto;
+			/* Maintain aspect ratio */
+		}
 
-    .button-6 {
-      margin-top: 50px; /* Add space above the RSVP button */
-      margin-bottom: -30px;
-      display: inline-block;
-      padding: 10px 20px 7px 20px;
-      background-color: #f3d9e8;
-      color: #1E2617;
-      text-transform: uppercase;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 1.3rem
-    }
+		.button-6 {
+			margin-top: 50px;
+			/* Add space above the RSVP button */
+			margin-bottom: -30px;
+			display: inline-block;
+			padding: 10px 20px 7px 20px;
+			background-color: #f3d9e8;
+			color: #1E2617;
+			text-transform: uppercase;
+			font-weight: bold;
+			border: none;
+			cursor: pointer;
+			text-decoration: none;
+			border-radius: 5px;
+			font-size: 1.3rem
+		}
 
-    .button-6:hover {
-      background-color: #e5c2da;
-    }
+		.button-6:hover {
+			background-color: #e5c2da;
+		}
 
-    .section3 {
-        display: flex;
-      flex-direction: column; /* Stack text and image vertically */
-      height: 100vh; /* Full viewport height */
-      font-family: Fabiola, serif;
-      background-color: #1E2617;
-      justify-content: center; /* Center both sections vertically */
-      align-items: center; 
-    }
+		.section3 {
+			display: flex;
+			flex-direction: column;
+			/* Stack text and image vertically */
+			height: 100vh;
+			/* Full viewport height */
+			font-family: Fabiola, serif;
+			background-color: #1E2617;
+			justify-content: center;
+			/* Center both sections vertically */
+			align-items: center;
+		}
 
-    @media (max-width: 768px) {
-      .container1 {
-        flex-direction: column; /* Stack images vertically on small screens */
-        height: auto; /* Allow scrolling when stacked */
-      }
+		@media (max-width: 768px) {
+			.body {
+				align-items: center;
+			}
+			.container1 {
+				flex-direction: column;
+				/* Stack images vertically on small screens */
+				height: auto;
+				/* Allow scrolling when stacked */
+			}
 
-      .image-left{
-        max-width: 100vh;
-        width: auto; /* Full width for each image */
-        height: 100vh; /* Full height of the viewport for each image */
-        overflow: hidden;
-        object-fit: cover;
-      }
+			.image-left {
+				max-width: 100vh;
+				width: auto;
+				/* Full width for each image */
+				height: 100vh;
+				/* Full height of the viewport for each image */
+				overflow: hidden;
+				object-fit: cover;
+			}
 
-      .image-left img {
-      display: block;
-      max-width: 100vh; /* Ensures the image doesn't exceed the container */
-      max-height: 100vh; /* Prevents the image from exceeding the screen height */
-      width: auto; /* Maintains aspect ratio */
-      height: 100vh;
-      object-fit: cover;
-      overflow: hidden;
-    }
-      .image-right {
-        width: 100%; /* Full width for each image */
-        height: 100vh; /* Full height of the viewport for each image */
-      }
+			.image-left img {
+				display: block;
+				max-width: 100vw;
+				/* Ensures the image doesn't exceed the container */
+				max-height: 100vh;
+				/* Prevents the image from exceeding the screen height */
+				width: 100vw;
+				/* Maintains aspect ratio */
+				height: auto;
+				object-fit: contain;
+				overflow: hidden;
+			}
 
-      .image-right img {
-        max-width: 100vw; 
-        max-height: 100%;
-        width: auto;
-        height: auto;
-      }
+			.image-right {
+				width: 100vw;
+				/* Full width for each image */
+				height: 100vh;
+				/* Full height of the viewport for each image */
+			}
 
-      .section2 {
-        flex-direction: column; /* Stack groups vertically */
-      }
+			.image-right img {
+				max-width: 100vw;
+				max-height: 100%;
+				width: 100vw;
+				height: auto;
+			}
 
-      .group {
-        width: 100%; /* Full width */
-        height: 100vh; /* Full viewport height */
-      }
-      .text-container {
-        margin: -30px;
-      }
+			.section2 {
+				flex-direction: column;
+				align-items: center;
+				width: 100vw;
+				/* height: 100vh; */
+				/* Stack groups vertically */
+			}
 
-      .text-box {
-        font-size: 16px; /* Adjust font size for smaller screens */
-      }
+			.group {
+				width: 100%;
+				/* Full width */
+				height: 100vh;
+				/* Full viewport height */
+			}
 
-      .flowers img {
-        max-width: 90vw; /* Ensure image scales properly on smaller screens */
-      }
-    }
-  </style>
+			.text-container {
+				margin: -30px;
+			}
+
+			.custom-text p {
+				/* margin: 5px 0; */
+				font-size: 2.5rem;
+			}
+
+			.custom-text time {
+				font-size: 2rem;
+				margin: 5px 0;
+			}
+
+			.custom-text span {
+				font-size: 1rem;
+			}
+
+			.custom-text .italic {
+				font-size: 0.8rem;
+			}
+
+			.text-box {
+				font-size: 16px;
+				/* Adjust font size for smaller screens */
+			}
+
+			.flowers img {
+				max-width: 90vw;
+				/* Ensure image scales properly on smaller screens */
+			}
+		}
+	</style>
 </head>
-<body>
-  <div class="container1">
-    <div class="image-left">
-      <img src="images/raluca_ducu_alternative.jpg" alt="Left Image">
-    </div>
-    <div class="image-right">
-      <img src="images/invite_dark_transparent.png" alt="Right Image">
-    </div>
-  </div>
-  <div class="section2">
-  <!-- Left Group -->
-  <div class="group left-group">
-    <img class="image" src="images/flori_dark_up.png" alt="Top Image Left">
-    <div class="text-container custom-text">
-        <p>C E R E M O N I A</p>
-        <time>15:30</time>
-        <span>Parohia Sf. Mare Mc. Mina</span>
-        <span class="detailsSpan">(Str. Vasile Conta 10, Cluj-Napoca, Cluj)</span>
-        <div class="button-container left-button">
-          <a href="https://www.google.com/maps" target="_blank">H A R T A</a>
-        </div>
-      </div>
-    <img class="image" src="images/flori_dark_down.png" alt="Bottom Image Left">
-  </div>
 
-  <!-- Right Group -->
-  <div class="group right-group">
-    <img class="image" src="images/flori_dark_up.png" alt="Top Image Right">
-    <div class="text-container custom-text">
-        <p>C E L E B R A R E A</p>
-        <time>18:00</time>
-        <span>The Wild Garden</span>
-        <span class="detailsSpan">(Str. Drumul Sf. Ioan 266, Cluj-Napoca, Cluj)</span>
-        <span class="italic">Parcarea rezervată la locație</span>
-        <span class="italic">Ținuta de tip cocktail</span>
-        <div class="button-container">
-          <a href="https://www.google.com/maps" target="_blank">H A R T A</a>
-        </div>
-      </div>
-    <img class="image" src="images/flori_dark_down.png" alt="Bottom Image Right">
-  </div>
-</div>
-<div class="section3">
-    <div class="text-box">
-        <h1>Ziua e mai frumoasa cu voi alaturi!</h1>
-        <p>Va rugam sa ne confirmati prezenta</p>
-        <div data-tally-open="wAbg4k" data-tally-layout="modal" data-tally-overlay="1" data-tally-auto-close="4000" class="button-6" role="button">
-          <span>R S V P</span>
-        </div>
-      </div>
-      <div class="image-container">
-        <div class="flowers">
-          <img src="images/flori_dark_double.png" alt="Flowers Image">
-        </div>
-      </div>
-</div>  
+<body>
+	<div class="container1">
+		<div class="image-left">
+			<img src="images/raluca_ducu_alternative.jpg" alt="Left Image">
+		</div>
+		<div class="image-right">
+			<img src="images/invite_dark_transparent.png" alt="Right Image">
+		</div>
+	</div>
+	<div class="section2">
+		<!-- Left Group -->
+		<div class="group left-group">
+			<img class="image" src="images/flori_dark_up.png" alt="Top Image Left">
+			<div class="text-container custom-text">
+				<p>C E R E M O N I A</p>
+				<time>15:30</time>
+				<span>Parohia Sf. Mare Mc. Mina</span>
+				<span class="detailsSpan">(Str. Vasile Conta 10, Cluj-Napoca, Cluj)</span>
+				<div class="button-container left-button">
+					<a href="https://www.google.com/maps" target="_blank">H A R T A</a>
+				</div>
+			</div>
+			<img class="image" src="images/flori_dark_down.png" alt="Bottom Image Left">
+		</div>
+
+		<!-- Right Group -->
+		<div class="group right-group">
+			<img class="image" src="images/flori_dark_up.png" alt="Top Image Right">
+			<div class="text-container custom-text">
+				<p>C E L E B R A R E A</p>
+				<time>18:00</time>
+				<span>The Wild Garden</span>
+				<span class="detailsSpan">(Str. Drumul Sf. Ioan 266, Cluj-Napoca, Cluj)</span>
+				<span class="italic">Parcarea rezervată la locație</span>
+				<span class="italic">Ținuta de tip cocktail</span>
+				<div class="button-container">
+					<a href="https://www.google.com/maps" target="_blank">H A R T A</a>
+				</div>
+			</div>
+			<img class="image" src="images/flori_dark_down.png" alt="Bottom Image Right">
+		</div>
+	</div>
+	<!-- <div class="section3">
+		<div class="text-box">
+			<h1>Ziua e mai frumoasa cu voi alaturi!</h1>
+			<p>Va rugam sa ne confirmati prezenta</p>
+			<div data-tally-open="wAbg4k" data-tally-layout="modal" data-tally-overlay="1" data-tally-auto-close="4000"
+				class="button-6" role="button">
+				<span>R S V P</span>
+			</div>
+		</div>
+		<div class="image-container">
+			<div class="flowers">
+				<img src="images/flori_dark_double.png" alt="Flowers Image">
+			</div>
+		</div>
+	</div> -->
 </body>
+
 </html>
