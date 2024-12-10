@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @font-face {
+        font-family: "Fabiola";
+        src: url(/fonts/fabiola.otf) format("truetype");
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <title>Responsive Stacked Groups</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Fabiola, serif;
+      background-color: #1E2617;
+      display: flex;
+      flex-direction: row; /* Side-by-side layout by default */
+      /* height: 100vh; Full viewport height */
+      /* overflow: hidden; */
+    }
+
+    .group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 50%; /* Half the width on large screens */
+      height: 100%; /* Full height of the viewport */
+    }
+
+    .image {
+      max-width: 80%;
+      max-height: 40%;
+      object-fit: contain;
+      margin: 10px 0;
+    }
+
+    .text {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .text-container {
+        z-index: -1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: #1E2617;
+      text-align: center;
+      margin: -100px;
+    }
+
+    .custom-text p {
+      margin: 5px 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #f3d9e8;
+    }
+
+    .custom-text time {
+      display: block;
+      font-size: 2rem;
+      color: #f3d9e8;
+      margin: 5px 0;
+    }
+
+    .custom-text span {
+        font-family: 'Raleway', serif;
+      font-size: 1.3rem;
+      color: #f3d9e8;
+      display: block;
+    }
+
+    .custom-text .italic {
+        font-family: 'Raleway', serif;
+      font-style: italic;
+      color: #f3d9e8;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    .detailsSpan span {
+        size: 0.7rem;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .left-button {
+        margin-top: 80px;
+    }
+
+    .button-container a {
+      display: inline-block;
+      padding: 8px 15px 6px 15px;
+      font-size: 1.3rem;
+      color: #f3d9e8;
+      background-color: #1E2617;
+      text-decoration: none;
+      border: 1px solid #ffffff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-container a:hover {
+      background-color: #788343;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column; /* Stack groups vertically */
+      }
+
+      .group {
+        width: 100%; /* Full width */
+        height: 100vh; /* Full viewport height */
+      }
+      .text-container {
+        margin: -30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Left Group -->
+  <div class="group left-group">
+    <img class="image" src="images/flori_dark_up.png" alt="Top Image Left">
+    <div class="text-container custom-text">
+        <p>C E R E M O N I A</p>
+        <time>15:30</time>
+        <span>Parohia Sf. Mare Mc. Mina</span>
+        <span class="detailsSpan">(Str. Vasile Conta 10, Cluj-Napoca, Cluj)</span>
+        <div class="button-container left-button">
+          <a href="https://www.google.com/maps" target="_blank">H A R T A</a>
+        </div>
+      </div>
+    <img class="image" src="images/flori_dark_down.png" alt="Bottom Image Left">
+  </div>
+
+  <!-- Right Group -->
+  <div class="group right-group">
+    <img class="image" src="images/flori_dark_up.png" alt="Top Image Right">
+    <div class="text-container custom-text">
+        <p>C E L E B R A R E A</p>
+        <time>18:00</time>
+        <span>The Wild Garden</span>
+        <span class="detailsSpan">(Str. Drumul Sf. Ioan 266, Cluj-Napoca, Cluj)</span>
+        <span class="italic">Parcarea rezervată la locație</span>
+        <span class="italic">Ținuta de tip cocktail</span>
+        <div class="button-container">
+          <a href="https://www.google.com/maps" target="_blank">H A R T A</a>
+        </div>
+      </div>
+    <img class="image" src="images/flori_dark_down.png" alt="Bottom Image Right">
+  </div>
+</body>
+</html>

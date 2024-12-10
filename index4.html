@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Images Layout</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container1 {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .image-left {
+      flex: 0 0 auto; /* Prevent resizing of the image container */
+      max-width: 50%; /* Ensures it takes up at most half of the screen */
+    }
+
+    .image-left img {
+    position: absolute; /* Absolutely positioned within the container */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Center the image */
+      max-width: 100vh;
+      max-height: 100vh;
+      object-fit: contain;
+    }
+
+    .image-right {
+      flex: 1 1 auto; /* Allows the right side to take remaining space */
+      display: flex;
+      justify-content: center; /* Center the image horizontally */
+      align-items: center; /* Center the image vertically */
+    }
+
+    .image-right img {
+      max-width: 100%;
+      max-height: 100vh; /* Prevents the image from exceeding the screen height */
+      width: auto; /* Maintains aspect ratio */
+      height: auto;
+    }
+
+    .text-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: #f5f5f5;
+      text-align: center;
+    }
+
+    .custom-text p {
+      margin: 5px 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .custom-text time {
+      display: block;
+      font-size: 1.2rem;
+      color: #555;
+      margin: 5px 0;
+    }
+
+    .custom-text span {
+      font-size: 1rem;
+      color: #333;
+      display: block;
+    }
+
+    .custom-text .italic {
+      font-style: italic;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .container1 {
+        flex-direction: column; /* Stack images vertically on small screens */
+        height: auto; /* Allow scrolling when stacked */
+      }
+
+      .image-left{
+        max-width: 100vh;
+        width: 100vh; /* Full width for each image */
+        height: 100vh; /* Full height of the viewport for each image */
+        overflow: hidden;
+      }
+      .image-right {
+        width: 100%; /* Full width for each image */
+        height: 100vh; /* Full height of the viewport for each image */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container1">
+    <div class="image-left">
+      <img src="images/raluca_ducu_1.jpg" alt="Left Image">
+    </div>
+    <div class="image-right">
+        <div class="text-container custom-text">
+            <p> Ziua e mai frumoasa cu voi alaturi!</p>
+            <span>Va rugam sa ne confirmati prezenta</span>
+            <div class="button-container">
+              <a href="https://www.google.com/maps" target="_blank">HARTA</a>
+            </div>
+            <span class="italic">⁠Pentru confortul vostru, ne ocupăm de detalii legate de cazare.</span>
+            <span class="italic">Vom reveni cu informații suplimentare.</span> 
+          </div>
+    </div>
+  </div>
+</body>
+</html>
+

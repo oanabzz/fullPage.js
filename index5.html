@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="https://tally.so/widgets/embed.js"></script>
+  <style>
+    @font-face {
+        font-family: "Fabiola";
+        src: url(/fonts/fabiola.otf) format("truetype");
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <title>Responsive Image and Text</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column; /* Stack text and image vertically */
+      height: 100vh; /* Full viewport height */
+      font-family: Fabiola, serif;
+      background-color: #1E2617;
+      justify-content: center; /* Center both sections vertically */
+      align-items: center; /* Center both sections horizontally */
+    }
+
+    .text-box {
+      text-align: center;
+      max-width: 80%; /* Adjust for readability */
+      color: #f3d9e8;
+      margin-bottom: 20px; /* Add spacing between text and image */
+    }
+
+    .text-box p {
+      font-family: 'Raleway', serif;
+    }
+
+    .text-box h1 {
+      font-size: 2.5rem;
+      margin-bottom: -10px;
+    }
+    .flowers img {
+      max-width: 50vw; /* Limit image width to 90% of the viewport width */
+      height: auto; /* Maintain aspect ratio */
+    }
+
+    .button-6 {
+      margin-top: 50px; /* Add space above the RSVP button */
+      margin-bottom: -30px;
+      display: inline-block;
+      padding: 10px 20px 7px 20px;
+      background-color: #f3d9e8;
+      color: #1E2617;
+      text-transform: uppercase;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.3rem
+    }
+
+    .button-6:hover {
+      background-color: #e5c2da;
+    }
+
+    @media (max-width: 768px) {
+      .text-box {
+        font-size: 16px; /* Adjust font size for smaller screens */
+      }
+
+      .flowers img {
+        max-width: 90vw; /* Ensure image scales properly on smaller screens */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="text-box">
+    <h1>Ziua e mai frumoasa cu voi alaturi!</h1>
+    <p>Va rugam sa ne confirmati prezenta</p>
+    <div data-tally-open="wAbg4k" data-tally-layout="modal" data-tally-overlay="1" data-tally-auto-close="4000" class="button-6" role="button">
+      <span>R S V P</span>
+    </div>
+  </div>
+  <div class="image-container">
+    <div class="flowers">
+      <img src="images/flori_dark_double.png" alt="Flowers Image">
+    </div>
+  </div>
+</body>
+</html>

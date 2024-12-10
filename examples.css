@@ -21,57 +21,6 @@ html {
   scroll-snap-align: start;
 }
 
-/* Default modal style */
-/* .modal {
-  width: 50%;
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-}
-
-.tally-popup {
-  width: 90%; /* Adjust width for mobile */
-  /* max-width: 600px; /* Set maximum width for larger screens */
-  /* height: 80vh; Set height relative to the viewport */
-  /* border: none; Remove default borders */
-  /* margin: auto; */
-  /* display: block; Center the iframe */
-/* }  */
-
-/* @media (max-width: 768px) {
-  .tally-iframe {
-    width: 100%; 
-    height: 100vh;
-  }
-} */
-
-/* Default modal style */
-/* .tally-popup {
-  width: 50%;
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-} */
-
-/* Adjust modal for smaller screens */
-/* @media (max-width: 768px) {
-  .tally-popup {
-    width: 700px;
-    max-width: none;
-  }
-}  */
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f4f4f4;
-}
-
 /* Tally iframe container styles */
 .tally-container {
   width: 100%;
@@ -95,4 +44,42 @@ iframe {
   .tally-container {
       height: 100vh; /* Use full height on smaller screens */
   }
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%; 
+}
+
+/* Container for the two images */
+.container {
+  display: flex;
+  height: 100%; /* Full viewport height */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Left image takes up 50% of the screen */
+.left {
+  width: 50%; /* Left image takes up 50% of the screen width */
+  height: 100vh; /* Full screen height */
+}
+
+/* Right image takes up the remaining 50% of the screen width */
+.right {
+  width: 50%; /* Right image takes up 50% of the screen width */
+  height: 100vh; /* Full screen height */
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+}
+
+/* Images should fill their containers */
+.left img, .right img {
+  height: 100%; /* Image height is 100% of the container height */
+  width: auto;  /* Maintain the aspect ratio */
+  object-fit: contain; /* Ensure the entire image is visible */
 }
